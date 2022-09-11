@@ -15,6 +15,7 @@
     "fetch-readablestream": "^0.2.0",
     "node-fetch": "^2.6.7",
     "patch-package": "^6.4.7",
+    "unorm": "^1.6.0",
     "web-streams-node": "^0.4.0"
   }
 }
