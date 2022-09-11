@@ -1,12 +1,44 @@
-// Rename this sample file to main.js to use on your project.
-// The main.js file will be overwritten in updates/reinstalls.
+require('./utils/shim');
 
-var rn_bridge = require('rn-bridge');
+const {Client} = require('@xmtp/xmtp-js');
+const {Wallet} = require('ethers');
+const Bridge = require('./utils/bridge');
 
-// Echo every message received from react-native.
-rn_bridge.channel.on('message', (msg) => {
-  rn_bridge.channel.send(msg);
-} );
+let wallet;
+let xmtpClient;
 
-// Inform react-native node is initialized.
-rn_bridge.channel.send("Node was initialized.");
+// Initialise wallet and client
+Bridge.receive('init', async privateKey => {
+  try {
+    if (privateKey) {
+      wallet = new Wallet(privateKey);
+    } else {
+      wallet = Wallet.createRandom();
+      Bridge.send('new-wallet', wallet.privateKey);
+    }
+
+    xmtpClient = await Client.create(wallet);
+    Bridge.send('xmtp-intialised');
+  } catch (error) {
+    Bridge.send('error', error.toString());
+  }
+});
+
+Bridge.receive('send-message', async message => {
+  const conversation = await xmtpClient.conversations.newConversation(
+    message.toAddress,
+  );
+  await conversation.send(message.text);
+});
+
+Bridge.receive('listen-to-address', async address => {
+  const conversation = await xmtpClient.conversations.newConversation(address);
+  for await (const message of await conversation.streamMessages()) {
+    console.log(`[${message.senderAddress}]: ${message.content}`);
+    Bridge.send('new-message', {
+      senderAddress: message.senderAddress,
+      content: message.content,
+      sent: message.sent,
+    });
+  }
+});
