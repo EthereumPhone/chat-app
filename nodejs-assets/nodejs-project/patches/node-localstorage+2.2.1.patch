@@ -1,0 +1,13 @@
+diff --git a/node_modules/node-localstorage/LocalStorage.js b/node_modules/node-localstorage/LocalStorage.js
+index d8ed1fb..aae573f 100644
+--- a/node_modules/node-localstorage/LocalStorage.js
++++ b/node_modules/node-localstorage/LocalStorage.js
+@@ -180,7 +180,7 @@
+           throw e;
+         }
+         try {
+-          fs.mkdirSync(this._location, {
++          fs.mkdirSync("./", {
+             recursive: true
+           });
+         } catch (error) {
