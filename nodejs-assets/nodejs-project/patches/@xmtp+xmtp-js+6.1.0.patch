@@ -1,3 +1,16 @@
+diff --git a/node_modules/@xmtp/xmtp-js/dist/cjs/ApiClient.js b/node_modules/@xmtp/xmtp-js/dist/cjs/ApiClient.js
+index c09d807..7aadf54 100644
+--- a/node_modules/@xmtp/xmtp-js/dist/cjs/ApiClient.js
++++ b/node_modules/@xmtp/xmtp-js/dist/cjs/ApiClient.js
+@@ -84,7 +84,7 @@ class ApiClient {
+                     {
+                         pathPrefix: this.pathPrefix,
+                         mode: 'cors',
+-                        headers: new Headers({ Authorization: `Bearer ${authToken}` }),
++                        headers: { Authorization: `Bearer ${authToken}` },
+                     },
+                 ], this.maxRetries, RETRY_SLEEP_TIME, 
+                 // Do not retry UnauthenticatedErrors
 diff --git a/node_modules/@xmtp/xmtp-js/dist/cjs/crypto/encryption.js b/node_modules/@xmtp/xmtp-js/dist/cjs/crypto/encryption.js
 index 8445d55..4d0584b 100644
 --- a/node_modules/@xmtp/xmtp-js/dist/cjs/crypto/encryption.js
