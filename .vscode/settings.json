@@ -1,0 +1,9 @@
+{
+  "files.exclude": {
+    "_bundle": true,
+    "_node-version": true,
+    "_ruby-version": true,
+    ".buckconfig": true,
+    ".watchmanconfig": true
+  }
+}
