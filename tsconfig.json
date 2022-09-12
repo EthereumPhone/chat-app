@@ -9,7 +9,10 @@
     "baseUrl": "./" /* Base directory to resolve non-absolute module names. */,
     "paths": {
       "@navigation": ["src/core/presentation/navigation"],
-      "@feature-auth/screens": ["src/feature-auth/presentation"]
-    }
+      "@feature-auth/screens": ["src/feature-auth/presentation"],
+      "@components": ["src/core/presentation/components"],
+    },
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   }
 }
