@@ -6,7 +6,7 @@ export default function () {
       padding: 10,
       paddingHorizontal: 16,
       backgroundColor: '#9667DD',
-      borderRadius: 8,
+      borderRadius: 40,
       justifyContent: 'center',
       alignItems: 'center',
     },
@@ -14,6 +14,25 @@ export default function () {
       color: 'white',
       fontWeight: '500',
       fontSize: 15,
+    },
+
+    iconBtnContainer: {
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    iconBtn: {
+      padding: 10,
+      paddingHorizontal: 16,
+      backgroundColor: '#fff',
+      borderRadius: 40,
+      justifyContent: 'center',
+      alignItems: 'center',
+      flexDirection: 'row',
+    },
+    iconLabel: {
+      color: 'black',
+      fontWeight: '500',
+      marginStart: 10,
     },
   });
 }

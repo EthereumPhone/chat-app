@@ -10,6 +10,7 @@ export default function () {
       fontSize: 30,
       fontWeight: '700',
       marginHorizontal: 16,
+      color: 'white',
     },
     subtitle: {
       fontSize: 16,
@@ -17,9 +18,16 @@ export default function () {
       marginTop: 4,
     },
     buttons: {
-      flexDirection: 'row',
-      marginHorizontal: 16,
-      marginVertical: 16,
+      margin: 16,
     },
+    buttons2: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginTop: 8,
+    },
+    iconButton: {
+      flex: 1,
+    },
+    connectBtn: {},
   });
 }
