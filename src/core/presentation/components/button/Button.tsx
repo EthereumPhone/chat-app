@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import FeatherIcon from 'react-native-vector-icons/Feather';
+
 import {
   ColorValue,
   Text,
@@ -63,9 +65,28 @@ const Icon: React.FC<IconButtonProps> = ({
   );
 };
 
+interface FABProps {
+  icon: string;
+  backgroundColor?: ColorValue;
+  style?: ViewStyle;
+}
+
+const FAB: React.FC<FABProps> = ({
+  icon,
+  backgroundColor = '#9667DD',
+  style,
+}) => {
+  return (
+    <TouchableOpacity style={[styles.fabContainer, {backgroundColor}, style]}>
+      <FeatherIcon name={icon} size={25} color="white" />
+    </TouchableOpacity>
+  );
+};
+
 export default class Button extends Component {
   static Filled = Filled;
   static Icon = Icon;
+  static FAB = FAB;
 
   render() {
     return <View />;

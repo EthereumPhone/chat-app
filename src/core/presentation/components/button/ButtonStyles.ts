@@ -34,5 +34,13 @@ export default function () {
       fontWeight: '500',
       marginStart: 10,
     },
+
+    fabContainer: {
+      borderRadius: 25,
+      height: 50,
+      width: 50,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
   });
 }
