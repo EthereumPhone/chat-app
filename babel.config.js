@@ -12,6 +12,8 @@ module.exports = {
           '@navigation': './src/core/presentation/navigation',
           '@feature-auth/screens': './src/feature-auth/presentation',
           '@components': './src/core/presentation/components',
+          '@images': './src/assets/images',
+          '@feature-chat/screens': './src/feature-chat/presentation',
         },
       },
     ],

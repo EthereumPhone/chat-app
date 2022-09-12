@@ -5,9 +5,11 @@ import {
   DefaultTheme,
   NavigationContainer,
 } from '@react-navigation/native';
+import {useColorScheme} from 'react-native';
+
 import {RootRoutes} from './types';
 import AuthenticationNavigator from './AuthenticationNavigator';
-import {useColorScheme} from 'react-native';
+import AuthenticatedNavigator from './AuthenticatedNavigator';
 
 const Stack = createNativeStackNavigator<RootRoutes>();
 
@@ -21,6 +23,7 @@ const RootNavigator: React.FC = () => {
           name="Authentication"
           component={AuthenticationNavigator}
         />
+        <Stack.Screen name="Authenticated" component={AuthenticatedNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
   );
