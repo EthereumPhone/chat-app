@@ -48,13 +48,13 @@ const Icon: React.FC<IconButtonProps> = ({
   return (
     <TouchableOpacity
       style={[
-        style,
         styles.iconBtn,
         {
           backgroundColor,
           borderColor,
           borderWidth: borderColor !== undefined ? 1 : 0,
         },
+        style,
       ]}
       onPress={onPress}>
       {icon}
@@ -69,15 +69,19 @@ interface FABProps {
   icon: string;
   backgroundColor?: ColorValue;
   style?: ViewStyle;
+  onPress: () => void;
 }
 
 const FAB: React.FC<FABProps> = ({
   icon,
   backgroundColor = '#9667DD',
   style,
+  onPress,
 }) => {
   return (
-    <TouchableOpacity style={[styles.fabContainer, {backgroundColor}, style]}>
+    <TouchableOpacity
+      style={[styles.fabContainer, {backgroundColor}, style]}
+      {...{onPress}}>
       <FeatherIcon name={icon} size={25} color="white" />
     </TouchableOpacity>
   );
