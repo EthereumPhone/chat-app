@@ -82,7 +82,7 @@ const FAB: React.FC<FABProps> = ({
     <TouchableOpacity
       style={[styles.fabContainer, {backgroundColor}, style]}
       {...{onPress}}>
-      <FeatherIcon name={icon} size={25} color="white" />
+      <FeatherIcon name={icon} size={28} color="white" />
     </TouchableOpacity>
   );
 };

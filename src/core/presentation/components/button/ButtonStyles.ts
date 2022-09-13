@@ -36,9 +36,9 @@ export default function () {
     },
 
     fabContainer: {
-      borderRadius: 25,
-      height: 50,
-      width: 50,
+      borderRadius: 30,
+      height: 60,
+      width: 60,
       justifyContent: 'center',
       alignItems: 'center',
     },
