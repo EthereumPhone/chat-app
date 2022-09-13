@@ -4,6 +4,7 @@ import {BottomSheetModal, BottomSheetBackdrop} from '@gorhom/bottom-sheet';
 import {useCallback} from 'react';
 import {observer} from 'mobx-react';
 import {container} from 'tsyringe';
+import FeatherIcon from 'react-native-vector-icons/Feather';
 
 import ConversationsStyles from './ConversationsStyles';
 import ConversationItem from '../components/ConversationItem';
@@ -11,6 +12,7 @@ import ConversationsViewModel from './ConversationsViewModel';
 import {Conversation} from '../../domain/models';
 import {Button} from '@components';
 import CreateNewConversationSheet from '../components/CreateNewConversationSheet';
+import ClientInfoCard from '../components/ClientInfoCard';
 
 const styles = ConversationsStyles();
 
@@ -36,7 +38,13 @@ const ConversationsScreen: React.FC = () => {
   }, []);
 
   const renderHeader = useCallback(() => {
-    return <Text style={styles.header}>Conversations</Text>;
+    return (
+      <View>
+        <Text style={styles.header}>Conversations</Text>
+        {/* Client info */}
+        <ClientInfoCard />
+      </View>
+    );
   }, []);
 
   const renderSeparator = useCallback(() => {
@@ -53,6 +61,7 @@ const ConversationsScreen: React.FC = () => {
     <View style={styles.container}>
       {/* List of conversation */}
       <FlatList
+        style={styles.list}
         data={viewModel.conversations}
         keyExtractor={item => item.peerAddress}
         renderItem={renderConversationItem}
@@ -62,10 +71,12 @@ const ConversationsScreen: React.FC = () => {
       />
 
       {/* FAB */}
-      <Button.FAB
-        icon="plus"
+      <Button.Icon
+        icon={<FeatherIcon name="plus" size={20} color="white" />}
         style={styles.fab}
         onPress={handlePresentModalPress}
+        label="Start chat"
+        color="white"
       />
 
       {/* Create new conversation sheet */}

@@ -19,5 +19,8 @@ export default function () {
     listContainer: {
       paddingBottom: 82,
     },
+    list: {
+      flex: 1,
+    },
   });
 }
