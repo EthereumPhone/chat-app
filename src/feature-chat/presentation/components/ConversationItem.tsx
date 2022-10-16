@@ -8,6 +8,7 @@ interface ConversationItemProps {
   address: string;
   lastMessage: string;
   timestamp: Date;
+  onPress: () => void;
 }
 
 const ConversationItem: React.FC<ConversationItemProps> = ({
@@ -15,6 +16,7 @@ const ConversationItem: React.FC<ConversationItemProps> = ({
   lastMessage,
   timestamp,
   profileImage,
+  onPress,
 }) => {
   // Memos
   const shortAddress = useMemo(() => {
@@ -27,6 +29,7 @@ const ConversationItem: React.FC<ConversationItemProps> = ({
 
   return (
     <TouchableOpacity
+      onPress={onPress}
       style={{padding: 16, flexDirection: 'row', alignItems: 'center'}}>
       <Image
         source={{uri: profileImage}}

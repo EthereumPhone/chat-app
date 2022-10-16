@@ -12,6 +12,7 @@ export type AuthenticationRoutes = {
 
 export type AuthenticatedRoutes = {
   Conversations: undefined;
+  Messages: undefined;
 };
 
 export interface RootNavigationProps<RouteName extends keyof RootRoutes> {

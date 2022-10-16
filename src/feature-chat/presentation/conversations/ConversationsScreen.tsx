@@ -13,12 +13,23 @@ import {Conversation} from '../../domain/models';
 import {Button} from '@components';
 import CreateNewConversationSheet from '../components/CreateNewConversationSheet';
 import ClientInfoCard from '../components/ClientInfoCard';
+import {useNavigation} from '@react-navigation/native';
+import {AuthenticatedRoutes} from '@navigation';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 const styles = ConversationsStyles();
+
+type ConversationsNavigationProps = NativeStackNavigationProp<
+  AuthenticatedRoutes,
+  'Conversations'
+>;
 
 const ConversationsScreen: React.FC = () => {
   // Refs
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+
+  // Navigation
+  const navigation = useNavigation<ConversationsNavigationProps>();
 
   // ViewModel
   const viewModel = useMemo(() => {
@@ -33,6 +44,9 @@ const ConversationsScreen: React.FC = () => {
         lastMessage={item.lastMessage}
         timestamp={item.date}
         profileImage={item.profileImage}
+        onPress={() => {
+          navigation.navigate('Messages');
+        }}
       />
     );
   }, []);
